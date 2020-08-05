@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+<!--https://github.com/1072078763/camel-learnning.git-->
+    <groupId>com.example.camel</groupId>
+    <artifactId>camel-learnning</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>01-hello-world</module>
+        <module>02-http-job</module>
+        <module>03-jdbc</module>
+        <module>04-get-data-from-other-system</module>
+        <module>05-component-ekp</module>
+        <module>06-component-dingpass</module>
+        <module>07-dingpass-to-ekp</module>
+        <module>08-basic-auth-server</module>
+    </modules>
+
+    <properties>
+        <project-version>1.0-SNAPSHOT</project-version>
+        <camel-version>3.4.0</camel-version>
+        <log4j2-version>2.13.3</log4j2-version>
+        <java-version>1.8</java-version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${camel-version}</version>
+        </dependency>
+
+        <!--可以使用这种方式，直接拉取所有的camel内置组件，也可以一个个按需拉取如cmael-jetty camel-http -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.camel</groupId>-->
+        <!--            <artifactId>camel-allcomponents</artifactId>-->
+        <!--            <version>${camel-version}</version>-->
+        <!--            &lt;!&ndash;这两个组件总是会拉不到导致报错，具体使用时，可以视情况放开&ndash;&gt;-->
+        <!--            <exclusions>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.apache.camel</groupId>-->
+        <!--                    <artifactId>camel-weka</artifactId>-->
+        <!--                </exclusion>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.apache.camel</groupId>-->
+        <!--                    <artifactId>camel-ipfs</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+        <!--            <type>pom</type>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-quartz</artifactId>
+            <version>${camel-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-http</artifactId>
+            <version>${camel-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jetty</artifactId>
+            <version>${camel-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cxf</artifactId>
+            <version>${camel-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jdbc</artifactId>
+            <version>${camel-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.0</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.68</version>
+        </dependency>
+
+        <!-- logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <scope>runtime</scope>
+            <version>${log4j2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <scope>runtime</scope>
+            <version>${log4j2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <scope>runtime</scope>
+            <version>${log4j2-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.20</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

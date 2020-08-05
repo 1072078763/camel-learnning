@@ -1,0 +1,9 @@
+<routes xmlns="http://camel.apache.org/schema/spring">
+    <route>
+        <from uri="quartz://report?cron=* * * * * ?"/>
+        <setBody>
+            <constant>Hello World</constant>
+        </setBody>
+        <to uri="log:mainInfo"></to>
+    </route>
+</routes>
